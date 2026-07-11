@@ -1,0 +1,15 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "cy": "readonly",
+    "Cypress": "readonly",
+    "expect": "readonly",
+    "assert": "readonly"
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "no-undef": "off"
+  }
+}
