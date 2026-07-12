@@ -1,0 +1,27 @@
+{
+  "extends": "dicodingacademy",
+  "plugins": ["react"],
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": "off",
+    "react/react-in-jsx-scope": "off",
+    "linebreak-style": "off"
+  }
+}
