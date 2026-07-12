@@ -38,13 +38,19 @@ describe('Login spec', () => {
   });
 
   it('should display the homepage with a "Keluar" button after successful login', () => {
+    cy.intercept('POST', '**/login').as('loginRequest');
+    cy.intercept('GET', '**/users/me').as('getOwnProfile');
+
     cy.get('a').contains('Masuk').click();
 
     cy.get('input[placeholder="Email"]').type(Cypress.env('EMAIL'));
     cy.get('input[placeholder="Password"]').type(Cypress.env('PASSWORD'));
     cy.get('button').contains('Login').click();
 
-    cy.get('button').contains('Keluar').should('be.visible');
+    cy.wait('@loginRequest');
+    cy.wait('@getOwnProfile');
+
+    cy.get('button').contains('Keluar', { timeout: 10000 }).should('be.visible');
     cy.get('a').contains('Masuk').should('not.exist');
   });
 });
